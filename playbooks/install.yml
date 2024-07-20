@@ -1,0 +1,32 @@
+---
+- hosts: all
+  remote_user: cloud_user
+  sudo: yes
+  tasks:
+
+- group:
+  name: devops
+  state: present
+
+- name: create devops user with admin privileges
+
+  user:
+    name: devops
+    comment: "Devops User"
+    uid: 2001
+    group: devops
+- hosts: www
+  user: cloud_user
+  sudo: yes
+  tasks: 
+  - name: add official epel repo
+    yum_repository:
+      name: epel
+      description: "Extra Packages for Enterprise Linux"
+      baseurl: "https://download.fedoraproject.org/pub/epel/$releasever/$basearch/"
+      gpgcheck: yes
+      gpgkey: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$releasever"
+      
+    
+
+
