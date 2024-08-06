@@ -1,0 +1,15 @@
+---
+- name: add official epel repo
+  yum_repository:
+    name: epel
+    description: "Extra Packages for Enterprise Linux"
+    baseurl: "https://download.fedoraproject.org/pub/epel/$releasever/$basearch/"
+    gpgcheck: yes
+    gpgkey: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$releasever"
+
+- name: Install CMake on CentOS/RHEL
+  tasks:
+    - name: Ensure CMake is installed
+      yum:
+        name: cmake
+        state: present
