@@ -1,38 +1,6 @@
 ---
-# essential tasks to run on all nodes
-# creates a d devops group
-- name: create a devops group
-  group: creating devops group
-#creates devops users 
-- name: create devops user
-  user: name=devops1 comment="Devops User" uid=2001 group=devops
-- name: create devops user
-  user: name=devops2 comment="Devops User" uid=2002 group=devops
-- name: create devops user
-  user: name=devops3 comment="Devops User" uid=2003 group=devops
 
-#install epel role
-- name: install htop package
-  action: yum name=epel-release state=present update_cache=yes
-
-- name: add official epel repo
-  yum_repository:
-  name: epel
-  description: "Extra Packages for Enterprise Linux"
-  baseurl: "https://download.fedoraproject.org/pub/epel/$releasever/$basearch/"
-  gpgcheck: yes
-  gpgkey: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$releasever"
-
-- name: Install EPEL repository
-  hosts: all
-  become: yes
-  tasks:
-    - name: Install EPEL release package (RHEL/CentOS 8 and 9)
-      dnf:
-        name: epel-release
-        state: present
-      when: ansible_distribution_major_version in ["8", "9"]
-      
-    
-
+name: add ssh key for the user cloud_user
+authorized_key: cloud_user
+key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDmJUFxcLSMtc89/mm8gYy6s/R9HOp/2cnWdr4H/IS1UfluG7cSWSpMUVbbNXedbXprzRpJBjQMeXYk1AVrcdwBfcI6WP0HMH/Z/gDtby7l47IE+nuOzXYY2lqLXbGq4iN5WU0RSuvYyjmsX/f71D8XU9rZf6IRWo3iHf+Nzrzsg9U4hlBLY+eKlgdcO9dZ8KKlTWaE+oaWKrUK7fSIdodNuvZFT4tqh57R3ZSmGnceXsVGWEWZ3Me+7FKDjpPDlq4Dalp3tgOwFKDXCPu5bnzvCb7EbzsQcBlNMrEZELOTapzrklf03c0rtPyJD1AeyqCkBJBdAo3EsHJdcHYkcXldk7M6oLK8fRt+b6IQ02GVwMPTiBhTVZPFSgE4UGiLOmXqzFGnkDGD7Cz5oWZzyb4yt0fYevGKqoxSUl0Ros5u9t2TB5kyRYjwDa8L1gMQ9zqeNgUxBtb06udv1jBTooKxYPmsdc6+TKGC7AZ6WLPvOxDTbevjXL5+xlNt8oUAYh3Ggyp0YIzXpVI2vqXi7aPAzpXDTl0FekR668X6/1YVukcu/baMXrIYYgQp3J86DgpVNEuBgVEHu8R/jmdkmsunwN5wD+JaGubPWYWaRZgIycWUV1sUI4R/PVpmVAnVgYXDTzXkEE/Pz/6CXAl6ZpnaxWYlz2MAdT2OkRge4/gXWQ== git@github.com"
 
