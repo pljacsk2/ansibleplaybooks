@@ -1,5 +1,6 @@
 ---
-- name: add ssh key for cloud_user
-  authorized_key:
-    user: cloud_user
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIqaEGVXOJgkIaBr2iV+tJ1O5ZiPFGdDUqArwwoc0qEU pauljackson@Pauls-Mac-mini.Kawmak-R"
+
+name: add ssh key for the user cloud_user
+authorized_key: cloud_user
+key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDmJUFxcLSMtc89/mm8gYy6s/R9HOp/2cnWdr4H/IS1UfluG7cSWSpMUVbbNXedbXprzRpJBjQMeXYk1AVrcdwBfcI6WP0HMH/Z/gDtby7l47IE+nuOzXYY2lqLXbGq4iN5WU0RSuvYyjmsX/f71D8XU9rZf6IRWo3iHf+Nzrzsg9U4hlBLY+eKlgdcO9dZ8KKlTWaE+oaWKrUK7fSIdodNuvZFT4tqh57R3ZSmGnceXsVGWEWZ3Me+7FKDjpPDlq4Dalp3tgOwFKDXCPu5bnzvCb7EbzsQcBlNMrEZELOTapzrklf03c0rtPyJD1AeyqCkBJBdAo3EsHJdcHYkcXldk7M6oLK8fRt+b6IQ02GVwMPTiBhTVZPFSgE4UGiLOmXqzFGnkDGD7Cz5oWZzyb4yt0fYevGKqoxSUl0Ros5u9t2TB5kyRYjwDa8L1gMQ9zqeNgUxBtb06udv1jBTooKxYPmsdc6+TKGC7AZ6WLPvOxDTbevjXL5+xlNt8oUAYh3Ggyp0YIzXpVI2vqXi7aPAzpXDTl0FekR668X6/1YVukcu/baMXrIYYgQp3J86DgpVNEuBgVEHu8R/jmdkmsunwN5wD+JaGubPWYWaRZgIycWUV1sUI4R/PVpmVAnVgYXDTzXkEE/Pz/6CXAl6ZpnaxWYlz2MAdT2OkRge4/gXWQ== git@github.com"
+
